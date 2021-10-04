@@ -2,8 +2,8 @@ import gym
 import numpy as np
 import matplotlib.pyplot as plt
 
-from agent.Universal_Agent import UniversalAgent
-from ecm.Universal_ECM import UniversalECM
+from PS.agent.Universal_Agent import UniversalAgent
+from PS.ecm.Universal_ECM import UniversalECM
 
 from gym_interface import OpenAIEnvironment
 
@@ -12,7 +12,6 @@ adj_matrix[0][list(range(1, 2 + 1))] = 1
 
 eta = 1
 beta = 0.01
-
 
 env = OpenAIEnvironment('CartPole-v1')
 ecm = UniversalECM(gamma_damping=0, eta_glow_damping=eta, beta=beta)
@@ -31,8 +30,6 @@ for i_episode in range(1000):
         if done:
             data_steps = np.append(data_steps, n)
             break
-
-
 
 plt.plot(data_steps)
 plt.show()

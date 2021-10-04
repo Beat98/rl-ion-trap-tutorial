@@ -5,7 +5,14 @@ import numpy as np
 class UniversalECM(object):
     def __init__(self, gamma_damping=0., eta_glow_damping=0.1, beta=1):
         """
+        Basic episodic compositional memory (ECM) operating with any adjancency matrix which represents the clip
+        structure of the PS network. The tree structure does not change while learning. This code could be extended with
+        some generalization method, which adapt the decision tree while learning.
 
+        Args:
+            gamma_damping (float): The damping (or gamma) parameter. Set to zero if the environment doesn't change in time.
+            eta_glow_damping (float): glow parameter. Defaults to 0.1.
+            beta (float): softmax parameter. Defaults to 1.
         """
 
         self.num_actions = 0

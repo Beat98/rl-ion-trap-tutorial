@@ -9,8 +9,8 @@ def run(adj_matrix, KWARGS, eta, beta, num_episodes):
 
     # initialize Environment
     env = IonTrapEnv(**KWARGS)
-    # linear_probabilities is a function that converts h-values to probabilities by simply normalizing them
-    # gamma=0 means no forgetting, eta=1.0 means no interaction between steps
+
+    #
     ecm = UniversalECM(gamma_damping=0, eta_glow_damping=eta, beta=beta)
     ag = UniversalAgent(ECM=ecm, actions=env.actions, adj_matrix=adj_matrix)
 
